@@ -127,7 +127,7 @@ public class JobData {
         }
     }
 
-    public static ArrayList<HashMap<String, String>> findByValue( String value) {
+    public static ArrayList<HashMap<String, String>> findByValue( String value ) {
 
         value = value.toLowerCase();
 
@@ -148,7 +148,7 @@ public class JobData {
         }
 
         return positions;
- 
+
     }
 
 }
