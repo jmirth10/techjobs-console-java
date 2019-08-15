@@ -66,6 +66,8 @@ public class JobData {
      * @return List of all jobs matching the criteria
      */
     public static ArrayList<HashMap<String, String>> findByColumnAndValue(String column, String value) {
+        column = column.toLowerCase();
+        value = value.toLowerCase();
 
         // load data, if not already loaded
         loadData();
@@ -76,7 +78,7 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if (aValue.toLowerCase().contains(value)) {
                 jobs.add(row);
             }
         }
@@ -125,4 +127,29 @@ public class JobData {
         }
     }
 
+    public static ArrayList<HashMap<String, String>> findByValue( String value) {
+
+        value = value.toLowerCase();
+
+        loadData();
+
+        ArrayList<HashMap<String, String>> positions = new ArrayList<>();
+
+        for (HashMap<String, String> job : allJobs) {
+
+            for (String aValue : job.values()){
+
+                if (aValue.toLowerCase().contains(value)) {
+                    positions.add(job);
+
+                }
+
+            }
+        }
+
+        return positions;
+
+    }
+
 }
+
