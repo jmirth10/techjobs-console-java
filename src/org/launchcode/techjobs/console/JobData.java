@@ -142,6 +142,10 @@ public class JobData {
                 if (aValue.toLowerCase().contains(value)) {
                     positions.add(job);
 
+                    if(positions==positions){
+                        break;
+                    }
+
                 }
 
             }
